@@ -37,6 +37,12 @@ public class HelloController {
         model.addAttribute("feed", feed);
         
         PagedList<FriendList> friends = facebook.friendOperations().getFriendLists();
+        for (FriendList f : friends) {
+        	System.out.println("id:" + f.getId());
+        	System.out.println("name:" + f.getName());
+        	System.out.println("extra data:" + f.getExtraData());
+        	System.out.println("list type:" + f.getListType());
+		}
         model.addAttribute("friends", friends);
         
         return "hello";
